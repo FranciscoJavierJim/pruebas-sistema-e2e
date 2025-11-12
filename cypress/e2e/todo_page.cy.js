@@ -27,8 +27,8 @@ describe('pruebas de la pagina TODO', () => {
   
   it('editar tarea', () => {
     cy.get('[data-testid="text-input"]').type("aprender cypros{enter}")
-    cy.get('[data-testid="todo-item-label"]').dblclick({ force: true })
-    cy.get('[data-testid="todo-item-label"]').clear().type("aprender cypress{enter}")
+    cy.get('[data-testid="todo-item-label"]').contains('aprender cypros').dblclick()
+    cy.focused().should('be.visible').clear().type('aprender cypress{enter}')
     cy.get('[data-testid="todo-item-label"]').should("have.text", "aprender cypress")
   })
   
