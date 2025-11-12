@@ -17,10 +17,10 @@ Por ultimo, se añade un assert para verificar que el login fue exitoso
 
   it("login exitoso 2", () => {
     cy.visit("https://the-internet.herokuapp.com/")
-    cy.contains("a", "Form Authentication").click()
-    cy.get("#username").type("tomsmith")
-    cy.get("#password").type("SuperSecretPassword!")
-    cy.get('button[type="submit"]').click()
+    cy.contains("a", "Form Authentication").should("be.visible").click()
+    cy.get("#username").should("be.visible").type("tomsmith")
+    cy.get("#password").should("be.visible").type("SuperSecretPassword!")
+    cy.get('button[type="submit"]').should("be.enabled").click()
     cy.get(".flash.success").should("contain.text", "You logged into a secure area!")
   })
  
